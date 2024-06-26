@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="1080.0" maxWidth="1920.0" minHeight="1080.0" minWidth="1920.0" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #A2A2A2;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.aula.TelaPrincipalController">
+   <children>
+      <ImageView fx:id="imagemcarro" fitHeight="1080.0" fitWidth="1920.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@fundo.jpg" />
+         </image></ImageView>
+      <ImageView fitHeight="216.0" fitWidth="233.0" layoutX="-11.0" layoutY="-37.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="textomarca" layoutX="69.0" layoutY="159.0" prefHeight="60.0" prefWidth="360.0" textFill="WHITE">
+         <font>
+            <Font name="Walkway Black" size="56.0" />
+         </font>
+      </Label>
+      <Label fx:id="espmodelo" alignment="TOP_LEFT" layoutX="64.0" layoutY="225.0" prefHeight="719.0" prefWidth="680.0" textFill="WHITE">
+         <font>
+            <Font name="Zurich Extended BT" size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="fabricante" layoutX="310.0" layoutY="18.0" text="Marca" textFill="WHITE">
+         <font>
+            <Font name="Zurich Extended BT" size="33.0" />
+         </font>
+      </Label>
+      <Label fx:id="carro" layoutX="538.0" layoutY="18.0" text="Modelo" textFill="WHITE">
+         <font>
+            <Font name="Zurich Extended BT" size="33.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="MarcaCarro" layoutX="304.0" layoutY="15.0" opacity="0.0" prefHeight="45.0" prefWidth="129.0" promptText="Marca" style="-fx-border-color: #ffffff;" />
+      <ComboBox fx:id="Modelo" layoutX="538.0" layoutY="15.0" opacity="0.0" prefHeight="45.0" prefWidth="139.0" promptText="Modelo" />
+   </children>
+</AnchorPane>
