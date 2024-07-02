@@ -1,11 +1,15 @@
 package com.example.aula;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+
+import java.io.IOException;
 import java.sql.*;
 import javafx.scene.image.Image;
+import javafx.stage.Stage;
 
 
 public class TelaPrincipalController {
@@ -23,22 +27,38 @@ public class TelaPrincipalController {
     private Label fabricante;
     @FXML
     private Label carro;
+    @FXML
+    private Button voltar;
 
-    private String url = "jdbc:mysql://localhost:3308/aplicacao";
+    @FXML
+    private void buttonvoltar() {
+        try {
+            Stage stage = (Stage) voltar.getScene().getWindow();
+            SceneSwitcher.switchScene(stage, "login-view.fxml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private String url = "jdbc:mysql://localhost:3308/VoltDrive";
     private String user = "root";
     private String psw = "";
 
     @FXML
     public void initialize(){
-        loadComboBoxes();
-
-        MarcaCarro.setOnAction(event -> updateCarInfo());
-        Modelo.setOnAction(event -> updateCarInfo());
-    }
-    private void loadComboBoxes(){
         loadMarca();
-        loadModelo();
-    }
+
+        MarcaCarro.setOnAction(event -> {
+        String selectedMarca = MarcaCarro.getValue();
+        if (selectedMarca != null) {
+            loadModelo(selectedMarca);
+            updateCarInfo();
+        }
+    });
+
+        Modelo.setOnAction(event -> updateCarInfo());
+}
+
     private void loadMarca(){
         String query = "SELECT DISTINCT marca FROM carros ORDER BY marca";
 
@@ -55,12 +75,16 @@ public class TelaPrincipalController {
             e.printStackTrace();
         }
     }
-    private void loadModelo(){
-        String query = "SELECT DISTINCT modelo FROM carros ORDER BY modelo";
+    private void loadModelo(String marca){
+        Modelo.getItems().clear();
+        String query = "SELECT DISTINCT modelo FROM carros WHERE marca = ? ORDER BY modelo";
+
 
         try (Connection connection = DriverManager.getConnection(url, user, psw);
-             Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery(query)) {
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            preparedStatement.setString(1, marca);
+            ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
                 String value = resultSet.getString("modelo");

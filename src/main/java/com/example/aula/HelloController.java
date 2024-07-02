@@ -10,6 +10,11 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+
 public class HelloController {
 
     @FXML
@@ -28,6 +33,7 @@ public class HelloController {
     private Button cadastrar;
     @FXML
     private Hyperlink link;
+
 
     @FXML
     private void botaoCadastrar() {
@@ -67,7 +73,7 @@ public class HelloController {
     }
 
     private void salvarNoBanco(String name, String mail, String pass){
-        String url = "jdbc:mysql://localhost:3308/aplicacao";
+        String url = "jdbc:mysql://localhost:3308/VoltDrive";
         String user = "root";
         String pwd = "";
 

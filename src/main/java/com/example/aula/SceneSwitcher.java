@@ -11,7 +11,9 @@ public class SceneSwitcher {
 
     public static void switchScene(Stage stage, String fxmlFile) throws IOException {
         Parent root = FXMLLoader.load(SceneSwitcher.class.getResource(fxmlFile));
-        stage.setScene(new Scene(root));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setFullScreen(true);
         stage.show();
     }
 }

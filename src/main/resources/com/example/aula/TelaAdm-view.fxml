@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="900.0" maxWidth="1600.0" minHeight="900.0" minWidth="1600.0" prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.aula.TelaAdmController">
+    <children>
+      <ImageView fitHeight="900.0" fitWidth="1600.0" layoutX="344.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@planoADM.png" />
+         </image>
+      </ImageView>
+          <TextField fx:id="marca" layoutX="350.0" layoutY="375.0" prefHeight="45.0" prefWidth="260.0" />
+          <TextField fx:id="modelo" layoutX="980.0" layoutY="375.0" prefHeight="45.0" prefWidth="260.0" />
+          <TextArea fx:id="descricao" layoutX="350.0" layoutY="615.0" prefHeight="164.0" prefWidth="260.0" />
+          <TextField fx:id="imagem" layoutX="980.0" layoutY="615.0" prefHeight="45.0" prefWidth="260.0" />
+          <Button fx:id="concluir" layoutX="715.0" layoutY="817.0" mnemonicParsing="false" onAction="#buttonconcluir" prefHeight="67.0" prefWidth="151.0" text="Concluir">
+              <font>
+                  <Font name="System Bold" size="25.0" />
+              </font>
+          </Button>
+      <Label layoutX="119.0" layoutY="109.0" text="Voltar" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+          <Button fx:id="voltar" layoutX="101.0" layoutY="99.0" mnemonicParsing="false" onAction="#buttonvoltar" opacity="0.0" prefHeight="50.0" prefWidth="94.0" text="Voltar" textFill="WHITE" />
+          <Label layoutX="528.0" layoutY="50.0" prefHeight="73.0" prefWidth="544.0" text="Área do Administrador" textFill="WHITE">
+              <font>
+                  <Font name="System Bold" size="50.0" />
+              </font>
+         <effect>
+            <Blend />
+         </effect>
+          </Label>
+          <Label layoutX="445.0" layoutY="320.0" text="Marca" textFill="WHITE">
+              <font>
+                  <Font name="System Bold" size="25.0" />
+              </font>
+         <effect>
+            <Blend />
+         </effect>
+          </Label>
+          <Label layoutX="1065.0" layoutY="320.0" text="Modelo" textFill="WHITE">
+              <font>
+                  <Font name="System Bold" size="25.0" />
+              </font>
+         <effect>
+            <Blend />
+         </effect>
+          </Label>
+          <Label layoutX="420.0" layoutY="565.0" text="Descricao" textFill="WHITE">
+              <font>
+                  <Font name="System Bold" size="25.0" />
+              </font>
+         <effect>
+            <Blend />
+         </effect>
+          </Label>
+          <Label layoutX="1055.0" layoutY="565.0" text="Imagem" textFill="WHITE">
+              <font>
+                  <Font name="System Bold" size="25.0" />
+              </font>
+         <effect>
+            <Blend />
+         </effect>
+          </Label>
+          <Label fx:id="txtconcluir" layoutX="838.0" layoutY="712.0" prefHeight="85.0" prefWidth="404.0" textFill="WHITE">
+              <font>
+                  <Font size="15.0" />
+              </font>
+          </Label>
+      <ImageView fitHeight="335.0" fitWidth="317.0" layoutX="638.0" layoutY="100.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo.png" />
+         </image>
+      </ImageView>
+    </children>
+</AnchorPane>

@@ -18,40 +18,61 @@ public class LoginController {
     private Button entrar;
     @FXML
     private Hyperlink link;
-
-
+    @FXML
+    private CheckBox loginadm;
 
     @FXML
     private void botaoentar() throws IOException {
         String mail = email.getText();
         String pass = senha.getText();
+        boolean isAdminCheckboxChecked = loginadm.isSelected();
 
-        if (validarLogin(mail,pass)== true){
-            telaCadastro();
-        }
-        else{
-            texto.setText("usuario e senha não existe!");
-
+        if (isAdminCheckboxChecked) {
+            if (validarLogin(mail, pass, true)) {
+                telaCadastro();
+            } else {
+                texto.setText("Apenas os administradores podem acessar!");
+            }
+        } else {
+            if (validarLogin(mail, pass, false)) {
+                telaPrincipal();
+            } else {
+                texto.setText("O Email e/ou Senha estão incorretos!");
+            }
         }
 
     }
     @FXML
     private void telaCadastro() throws IOException {
         Stage stage = (Stage) email.getScene().getWindow();
-        SceneSwitcher.switchScene(stage, "TelaPrincipal-view.fxml");
+        SceneSwitcher.switchScene(stage, "TelaAdm-view.fxml");
     }
-    private boolean validarLogin(String mail, String password) {
-        String url = "jdbc:mysql://localhost:3308/aplicacao";
+
+    @FXML
+    private void telaPrincipal() throws IOException {
+        Stage stage = (Stage) email.getScene().getWindow();
+        SceneSwitcher.switchScene(stage, "telaPrincipal.fxml");
+    }
+
+    @FXML
+    private void buttonCadastrar() throws IOException {
+        Stage stage = (Stage) link.getScene().getWindow();
+        SceneSwitcher.switchScene(stage, "hello-view.fxml");
+    }
+
+    private boolean validarLogin(String mail, String password, boolean isAdmin) {
+        String url = "jdbc:mysql://localhost:3308/VoltDrive";
         String user = "root";
         String pwd = "";
 
-        String query = "SELECT * FROM usuarios WHERE email = ? AND senha= ?";
+        String query = "SELECT * FROM usuarios WHERE email = ? AND senha= ? AND administrador = ?";
 
         try (Connection connection = DriverManager.getConnection(url, user, pwd);
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
             preparedStatement.setString(1, mail);
             preparedStatement.setString(2, password);
+            preparedStatement.setBoolean(3, isAdmin);
 
             ResultSet resultSet = preparedStatement.executeQuery();
             return resultSet.next();

@@ -1,28 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="680.0" style="-fx-background-color: #33FFF9;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.aula.LoginController">
+<AnchorPane maxHeight="900.0" maxWidth="1600.0" minHeight="900.0" minWidth="1600.0" prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.aula.LoginController">
     <children>
-        <AnchorPane layoutX="101.0" layoutY="67.0" prefHeight="390.0" prefWidth="478.0" style="-fx-background-color: #ffffff;">
-            <children>
-                <Label layoutX="198.0" layoutY="26.0" prefHeight="40.0" prefWidth="80.0" text="Login">
-                    <font>
-                        <Font name="System Bold" size="28.0" />
-                    </font>
-                </Label>
-                <TextField fx:id="email" layoutX="21.0" layoutY="101.0" prefHeight="46.0" prefWidth="434.0" promptText="E-mail" />
-                <PasswordField fx:id="senha" layoutX="22.0" layoutY="160.0" prefHeight="46.0" prefWidth="434.0" promptText="Senha" />
-                <Button fx:id="entrar" layoutX="188.0" layoutY="217.0" mnemonicParsing="false" onAction="#botaoentar" prefHeight="55.0" prefWidth="100.0" text="Entar" />
-                <Hyperlink fx:id="link" layoutX="205.0" layoutY="305.0" onAction="#telaCadastro" text="Criar conta" />
-                <Label fx:id="texto" layoutX="6.0" layoutY="66.0" prefHeight="18.0" prefWidth="468.0" />
-            </children>
-        </AnchorPane>
+      <ImageView fitHeight="900.0" fitWidth="1600.0" layoutX="355.0" opacity="0.6" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@ChatOn%20image.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="368.0" fitWidth="358.0" layoutX="615.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo.png" />
+         </image>
+      </ImageView>
+          <Label layoutX="731.0" layoutY="308.0" prefHeight="71.0" prefWidth="132.0" text="Login" textFill="WHITE">
+              <font>
+                  <Font name="System Bold" size="45.0" />
+              </font>
+          </Label>
+          <TextField fx:id="email" layoutX="520.0" layoutY="445.0" prefHeight="75.0" prefWidth="550.0" promptText="E-mail">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </TextField>
+          <PasswordField fx:id="senha" layoutX="520.0" layoutY="550.0" prefHeight="75.0" prefWidth="550.0" promptText="Senha">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </PasswordField>
+          <CheckBox fx:id="loginadm" layoutX="520.0" layoutY="654.0" mnemonicParsing="false" text="Logar como Administrador" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </CheckBox>
+          <Button fx:id="entrar" layoutX="721.0" layoutY="760.0" mnemonicParsing="false" onAction="#botaoentar" prefHeight="61.0" prefWidth="137.0" style="-fx-background-color: #FFFAFA;" text="Entrar">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Button>
+          <Hyperlink fx:id="link" layoutX="737.0" layoutY="816.0" onAction="#buttonCadastrar" prefHeight="71.0" prefWidth="112.0" text="Criar conta">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Hyperlink>
+          <Label fx:id="texto" layoutX="520.0" layoutY="716.0" prefHeight="18.0" prefWidth="468.0" textFill="WHITE" />
+      <Label fx:id="texto1" layoutX="501.0" layoutY="396.0" prefHeight="36.0" prefWidth="594.0" text="Por Favor Insira seu Email e Senha para continuar!" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>
